@@ -18,6 +18,7 @@ class MainMenuScreen : BaseScreen(), MainMenuView {
         return MainMenuPresenter((activity as RouterProvider).getRouter())
     }
 
+    //singelton
     companion object {
         private val ARG_CAUGHT = "MainMenuScreen"
 
