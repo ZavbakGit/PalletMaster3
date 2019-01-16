@@ -4,9 +4,11 @@ import android.os.Bundle
 import com.anit.alx.palletmaster.R
 import com.anit.alx.palletmaster.mvp.presenters.MainMenuPresenter
 import com.anit.alx.palletmaster.mvp.view.MainMenuView
+import com.anit.alx.palletmaster.ui.adapters.ListMenuAdapter
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.campus.android.app.interfaces.RouterProvider
+import kotlinx.android.synthetic.main.main_menu_screen.*
 
 class MainMenuScreen : BaseScreen(), MainMenuView {
 
@@ -18,7 +20,6 @@ class MainMenuScreen : BaseScreen(), MainMenuView {
         return MainMenuPresenter((activity as RouterProvider).getRouter())
     }
 
-    //singelton 2
     companion object {
         private val ARG_CAUGHT = "MainMenuScreen"
 
@@ -29,6 +30,27 @@ class MainMenuScreen : BaseScreen(), MainMenuView {
             fragment.arguments = args
             return fragment
         }
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        lv_menu_screen_list.setAdapter(
+            ListMenuAdapter(
+                activity, listOf(
+                    "Товары",
+                    "Паддоны",
+                    "Штрихкода",
+                    "Формирование паддона",
+                    "Настройки"
+                )
+            )
+        )
+
+
+        lv_menu_screen_list.requestFocus(0)
+        lv_menu_screen_list.setSelection(0)
+        lv_menu_screen_list.setClickable(true)
     }
 
     override fun getRouter() = (activity as RouterProvider).getRouter()
