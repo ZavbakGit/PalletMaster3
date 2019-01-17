@@ -47,8 +47,6 @@ class ListMenuAdapter(private val mContext: FragmentActivity?, val mlist: List<S
         var tvId: TextView = view.findViewById(R.id.tvId)
         var tvName: TextView = view.findViewById(R.id.tvName)
 
-
-
         fun setData(id: String, name: String) {
             tvId.text = id
             tvName.text = name
