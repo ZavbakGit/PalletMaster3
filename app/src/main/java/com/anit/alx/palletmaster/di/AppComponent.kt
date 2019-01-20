@@ -1,6 +1,7 @@
 package com.anit.alx.palletmaster.di
 
 
+import com.anit.alx.palletmaster.mvp.presenters.MainMenuPresenter
 import com.anit.alx.palletmaster.ui.activities.BaseActivity
 import com.campus.android.di.LocalNavigationModule
 import com.campus.android.di.NavigationModule
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
     fun inject(baseActivity: BaseActivity)
+    fun inject(baseActivity: MainMenuPresenter)
 }
 
 
