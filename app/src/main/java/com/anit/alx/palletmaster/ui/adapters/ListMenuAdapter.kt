@@ -10,13 +10,14 @@ import android.widget.TextView
 import com.anit.alx.palletmaster.R
 import android.graphics.Typeface
 import com.anit.alx.palletmaster.di.App
+import com.anit.alx.palletmaster.mvp.model.EnumMenu
 
 
 /**
  * Created by Alex on 16.06.2017.
  */
 
-class ListMenuAdapter(private val mContext: FragmentActivity?, val mlist: List<String>) : BaseAdapter() {
+class ListMenuAdapter(private val mContext: FragmentActivity?, val mlist: List<EnumMenu>) : BaseAdapter() {
 
     override fun getCount() = mlist.size
 
@@ -49,9 +50,9 @@ class ListMenuAdapter(private val mContext: FragmentActivity?, val mlist: List<S
 
 
 
-        fun setData(id: String, name: String) {
-            tvId.text = id
-            tvName.text = name
+        fun setData(id: String, itemMenu: EnumMenu) {
+            tvId.text = itemMenu.id.toString()
+            tvName.text = itemMenu.fullName
         }
     }
 

@@ -15,6 +15,10 @@ import com.campus.android.app.interfaces.RouterProvider
 import kotlinx.android.synthetic.main.main_menu_screen.*
 
 class MainMenuScreen : BaseScreen(), MainMenuView {
+    override fun startPreferenceModule() {
+       presenter.startPreferenceModule(activity as Context)
+    }
+
     override fun startCreatePalleteModule() {
         presenter.startCreateMenuModule(activity as Context)
     }
@@ -42,18 +46,7 @@ class MainMenuScreen : BaseScreen(), MainMenuView {
 
     override fun onStart() {
         super.onStart()
-        lv_menu_screen_list.setAdapter(
-            ListMenuAdapter(
-                activity, listOf(
-                    "Товары",
-                    "Паддоны",
-                    "Штрихкода",
-                    "Формирование паддона",
-                    "Настройки"
-                )
-            )
-        )
-
+        lv_menu_screen_list.adapter = ListMenuAdapter(activity, presenter.getListMenu())
 
         lv_menu_screen_list.requestFocus(0)
         lv_menu_screen_list.setSelection(0)
@@ -75,8 +68,6 @@ class MainMenuScreen : BaseScreen(), MainMenuView {
                 return false
             }
         })
-
-
 
 
     }

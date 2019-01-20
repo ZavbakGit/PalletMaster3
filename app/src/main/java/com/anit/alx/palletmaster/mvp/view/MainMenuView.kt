@@ -8,4 +8,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface MainMenuView:MvpView {
     @StateStrategyType(value = OneExecutionStateStrategy::class)
     fun startCreatePalleteModule()
+
+    @StateStrategyType(value = OneExecutionStateStrategy::class)
+    fun startPreferenceModule()
 }

@@ -1,1 +1,1 @@
-include ':app', ':feature-createpallete'
+include ':app', ':feature-createpallete', ':featurere-pference'
